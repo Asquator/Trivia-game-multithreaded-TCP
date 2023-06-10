@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trivia.TriviaController">
+   <children>
+      <Label fx:id="questionLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="121.0" prefWidth="878.0" textAlignment="CENTER" VBox.vgrow="SOMETIMES">
+         <font>
+            <Font size="26.0" />
+         </font></Label>
+      <GridPane fx:id="optionsPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="360.0" prefWidth="868.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="604.4076008336515" minWidth="10.0" prefWidth="482.9567947080976" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="485.72031241600644" minWidth="0.0" prefWidth="481.73081046288144" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="236.93697325389243" minHeight="10.0" prefHeight="178.74770996137784" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="197.4797334773849" minHeight="10.0" prefHeight="180.5244112117599" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="180.0" prefWidth="475.0">
+               <children>
+                  <Label fx:id="op1" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="226.0" prefWidth="393.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <RadioButton fx:id="select1" mnemonicParsing="false" text="A">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <Label fx:id="op2" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="226.0" prefWidth="393.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <RadioButton fx:id="select2" mnemonicParsing="false" text="B">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="op3" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="226.0" prefWidth="393.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <RadioButton fx:id="select3" mnemonicParsing="false" text="C">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="op4" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="160.0" prefWidth="496.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <RadioButton fx:id="select4" mnemonicParsing="false" text="D">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="965.0">
+         <children>
+            <Button fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#onStartClicked" prefHeight="33.0" prefWidth="142.0" text="Start game" textAlignment="CENTER">
+               <font>
+                  <Font name="Cantarell Regular" size="23.0" />
+               </font>
+            </Button>
+            <Label fx:id="timerLabel" prefHeight="46.0" prefWidth="131.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="sendButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSendClicked" prefHeight="33.0" prefWidth="142.0" text="Send" textAlignment="CENTER">
+               <font>
+                  <Font name="Cantarell Regular" size="23.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" prefHeight="46.0" prefWidth="131.0" text="Score">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="scoreLabel" alignment="CENTER" prefHeight="46.0" prefWidth="131.0" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</VBox>
