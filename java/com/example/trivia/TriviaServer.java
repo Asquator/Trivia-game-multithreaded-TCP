@@ -82,7 +82,6 @@ public class TriviaServer {
                 try {
                     os.close();
                     is.close();
-                    sc.close();
                 } catch (IOException ignored) {}
             }
 

@@ -30,7 +30,7 @@ public class TriviaClient implements Runnable {
         int delay;
         int timeLeft;
 
-        private void actionPerformed(ActionEvent event) {
+        private void updateScore(ActionEvent event) {
             runLater(() -> uiController.setTimerLabel(String.valueOf(timeLeft)));
             timeLeft--;
             if (timeLeft < 0) {
@@ -40,17 +40,16 @@ public class TriviaClient implements Runnable {
         }
 
         public QuestionTimer(int seconds) {
+            //setting time delay to one second
             super(1000, null);
+
+            setInitialDelay(0); //start from update actions
+
+            //setting action to update the score
+            addActionListener(this::updateScore);
 
             this.delay = seconds;
             timeLeft = delay;
-
-            addActionListener(this::actionPerformed);
-        }
-
-        @Override
-        public void start() {
-            super.start();
         }
 
         public void reset(){
