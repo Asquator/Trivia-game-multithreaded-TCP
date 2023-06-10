@@ -26,11 +26,14 @@ public class TriviaClient implements Runnable {
     private static final int CORRECT_POINTS = 10;
     private static final int WRONG_POINTS = -5;
 
+
+    //timer to update score and handle timeout
     private class QuestionTimer extends Timer {
         int delay;
         int timeLeft;
 
-        private void updateScore(ActionEvent event) {
+        //counts down and updates the score
+        private void updateCountdown(ActionEvent event) {
             runLater(() -> uiController.setTimerLabel(String.valueOf(timeLeft)));
             timeLeft--;
             if (timeLeft < 0) {
@@ -46,19 +49,28 @@ public class TriviaClient implements Runnable {
             setInitialDelay(0); //start from update actions
 
             //setting action to update the score
-            addActionListener(this::updateScore);
+            addActionListener(this::updateCountdown);
 
             this.delay = seconds;
             timeLeft = delay;
         }
 
+        //resets the timer
         public void reset(){
             timeLeft = delay;
         }
     }
 
+    //timer instance
     private final QuestionTimer timer;
 
+    /**
+     * Constructs a client
+     * @param controller GUI controller
+     * @param host server host
+     * @param port server port
+     * @param delay allowed time for answering
+     */
     public TriviaClient(TriviaController controller, String host, int port, int delay) {
         this.uiController = controller;
         this.host = host;
@@ -66,14 +78,17 @@ public class TriviaClient implements Runnable {
         timer = new QuestionTimer(delay);
     }
 
+    /**
+     * run the client connection
+     */
     @Override
     public void run() {
-        //try to connect until succeeded
+        //prepare the GUI
         runLater(() -> {uiController.setQuestionLabel("Connecting to the server");
             uiController.setScoreLabel(String.valueOf(0));
         });
 
-
+        //try to connect until succeeded
         while (true) {
             try {
                 sc = new Socket(host, port);
@@ -90,6 +105,7 @@ public class TriviaClient implements Runnable {
 
             currentQuestion = (TriviaQuestion) is.readObject();
 
+            //settings questions until exhausted
             while (currentQuestion != null) {
                 handleQuestion();
 
@@ -109,6 +125,7 @@ public class TriviaClient implements Runnable {
         }
     }
 
+    //terminate this client: prepare the GUI and release resources
     private void terminate(){
         try {
             uiController.setDisableGameUi(true);
@@ -119,16 +136,19 @@ public class TriviaClient implements Runnable {
         }
     }
 
+    //handle question: start timer and update GUI
     private void handleQuestion() {
         timer.start();
         runLater(() -> uiController.setNewQuestion(currentQuestion));
     }
 
+    //handle answered question
     void handleAnswered(int answer) {
         timer.stop();
         timer.reset();
         runLater(() -> uiController.setTimerLabel(""));
 
+        //update points
         if (answer == currentQuestion.getCorrect())
             score += CORRECT_POINTS;
 

@@ -18,21 +18,28 @@ public class TriviaServer {
 
     private ServerSocket sc;
 
+    /**
+     * Constructs a trivia game server
+     */
     public TriviaServer() {
         try {
             sc = new ServerSocket(PORT);
             Socket playerSocket;
 
+            //accepting connections and submitting to the pool
             while (true) {
                 playerSocket = sc.accept();
                 pool.submit(new Player(playerSocket));
             }
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
 
-
+    /**
+     * Class to manage a player connection
+     */
     public class Player implements Runnable {
         private final Socket socket;
         private DataInputStream is;
@@ -56,6 +63,7 @@ public class TriviaServer {
                 is = new DataInputStream(socket.getInputStream());
                 os = new ObjectOutputStream(socket.getOutputStream());
                 os.flush();
+
             } catch (IOException ex) {
                 ex.printStackTrace();
                 System.exit(1);
@@ -68,15 +76,15 @@ public class TriviaServer {
         @Override
         public void run() {
             try {
+                //send questions until exhausted
                 while (!questionStock.isEmpty()) {
                     sendQuestion();
                     waitForNext();
                 }
 
+                //terminate by sending null
                 os.writeObject(null);
-            } catch (Exception ignored) {
-
-            }
+            } catch (Exception ignored) {}
 
             finally {
                 try {
@@ -98,11 +106,15 @@ public class TriviaServer {
             is.readInt();
         }
 
+        //auxiliary method to prepare questions for the player
         private void prepareQuestions() throws IOException {
+
+            //opening questions file associated with the server
             InputStream qStream = TriviaServer.class.getResourceAsStream(QUESTIONS_FILE);
             if (qStream == null)
                 throw new IOException("Couldn't open questions file");
 
+            //parse the file and shuffle the questions
             LinkedList<TriviaQuestion> questions = TriviaIO.parseQuestions(qStream, N_QUESTIONS);
             Collections.shuffle(questions);
 

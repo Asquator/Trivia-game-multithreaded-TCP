@@ -29,8 +29,9 @@ public class TriviaController {
     @FXML
     private Button sendButton, startButton;
 
-    private TriviaClient client;
-
+    /**
+     * initialize the GUI
+     */
     public void initialize(){
         select1.setToggleGroup(tg);
         select2.setToggleGroup(tg);
@@ -45,8 +46,12 @@ public class TriviaController {
         setDisableGameUi(true);
     }
 
+    private TriviaClient client;
+
 
     //the following functions are package-accessed and used by the client code
+
+    //disable the GUI for connection waiting or enable for the game
     void setDisableGameUi(boolean val){
         startButton.setDisable(!val);
         questionLabel.setText(val ? "Game has not started yet" : "");
@@ -54,18 +59,11 @@ public class TriviaController {
         sendButton.setDisable(val);
     }
 
+
+    //SETTERS
+
     void setQuestionLabel(String text){
         questionLabel.setText(text);
-    }
-
-    void setNewQuestion(TriviaQuestion question){
-        questionLabel.setText(question.getQuestion());
-
-        List<String> options = question.getOptions();
-        op1.setText(options.get(0));
-        op2.setText(options.get(1));
-        op3.setText(options.get(2));
-        op4.setText(options.get(3));
     }
 
     void setTimerLabel(String text) {
@@ -74,6 +72,17 @@ public class TriviaController {
 
     void setScoreLabel(String text) {
         scoreLabel.setText(text);
+    }
+
+    //sets new question during the game
+    void setNewQuestion(TriviaQuestion question){
+        questionLabel.setText(question.getQuestion());
+
+        List<String> options = question.getOptions();
+        op1.setText(options.get(0));
+        op2.setText(options.get(1));
+        op3.setText(options.get(2));
+        op4.setText(options.get(3));
     }
 
     @FXML
@@ -89,10 +98,10 @@ public class TriviaController {
 
     @FXML
     void onStartClicked(ActionEvent event) {
-        //starting client
-        client = new TriviaClient(this, TriviaApplication.getHost(), TriviaServer.PORT, TriviaApplication.getDelay());
         startButton.setDisable(true);
 
+        //starting client
+        client = new TriviaClient(this, TriviaApplication.getHost(), TriviaServer.PORT, TriviaApplication.getDelay());
         new Thread(client).start();
 
     }

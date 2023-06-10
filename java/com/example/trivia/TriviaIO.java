@@ -5,11 +5,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
-import java.util.List;
 
-//IO to read input file and construct trivia questions
+//IO file used by server to read input file and construct trivia questions
 public class TriviaIO {
 
+    /**
+     * Read the given stream and construct a list of questions
+     * @param is stream
+     * @param max max questions to parse
+     * @return list of questions
+     * @throws IOException if IO error occurred / the file has a wrong format
+     */
     public static LinkedList<TriviaQuestion> parseQuestions(InputStream is, int max) throws IOException {
         LinkedList<TriviaQuestion> questions = new LinkedList<>();
 
@@ -17,6 +23,7 @@ public class TriviaIO {
 
         int cnt = 0;
 
+        //read questions and add to the list
         TriviaQuestion q = readNextQuestion(reader);
         while(q != null && cnt < max){
             questions.add(q);
