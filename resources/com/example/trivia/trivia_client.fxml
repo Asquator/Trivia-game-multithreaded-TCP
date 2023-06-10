@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trivia.TriviaController">
+<VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trivia.TriviaController">
    <children>
-      <Label fx:id="questionLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="169.0" prefWidth="965.0" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+      <Label fx:id="questionLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="198.0" prefWidth="1185.0" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
          <font>
             <Font size="26.0" />
          </font></Label>
-      <GridPane fx:id="optionsPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="360.0" prefWidth="868.0">
+      <GridPane fx:id="optionsPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="360.0" prefWidth="868.0" VBox.vgrow="ALWAYS">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="604.4076008336515" minWidth="10.0" prefWidth="482.9567947080976" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="485.72031241600644" minWidth="0.0" prefWidth="481.73081046288144" />
@@ -27,9 +27,9 @@
           <RowConstraints maxHeight="197.4797334773849" minHeight="10.0" prefHeight="180.5244112117599" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="180.0" prefWidth="475.0">
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="180.0" prefWidth="475.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="op1" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="226.0" prefWidth="393.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                  <Label fx:id="op1" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="226.0" prefWidth="393.0" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
@@ -40,9 +40,9 @@
                   </RadioButton>
                </children>
             </VBox>
-            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="op2" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="226.0" prefWidth="393.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                  <Label fx:id="op2" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="226.0" prefWidth="393.0" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
@@ -53,9 +53,9 @@
                   </RadioButton>
                </children>
             </VBox>
-            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="op3" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="226.0" prefWidth="393.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                  <Label fx:id="op3" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="226.0" prefWidth="393.0" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
@@ -66,9 +66,9 @@
                   </RadioButton>
                </children>
             </VBox>
-            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="op4" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="160.0" prefWidth="496.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                  <Label fx:id="op4" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="160.0" prefWidth="496.0" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
@@ -83,12 +83,12 @@
       </GridPane>
       <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="965.0">
          <children>
-            <Button fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#onStartClicked" prefHeight="47.0" prefWidth="175.0" text="Start game" textAlignment="CENTER">
+            <Button fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#onStartClicked" prefHeight="47.0" prefWidth="175.0" text="Start game" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Cantarell Regular" size="23.0" />
                </font>
             </Button>
-            <Label fx:id="timerLabel" prefHeight="46.0" prefWidth="131.0">
+            <Label fx:id="timerLabel" alignment="CENTER" prefHeight="46.0" prefWidth="131.0">
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
@@ -96,12 +96,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="sendButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSendClicked" prefHeight="33.0" prefWidth="142.0" text="Send" textAlignment="CENTER">
+            <Button fx:id="sendButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSendClicked" prefHeight="47.0" prefWidth="153.0" text="Send" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Cantarell Regular" size="23.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" prefHeight="46.0" prefWidth="131.0" text="Score">
+            <Label alignment="CENTER" prefHeight="47.0" prefWidth="144.0" text="Score:" wrapText="true">
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>

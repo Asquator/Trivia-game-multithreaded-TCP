@@ -69,7 +69,10 @@ public class TriviaClient implements Runnable {
     @Override
     public void run() {
         //try to connect until succeeded
-        runLater(() -> uiController.setQuestionLabel("Connecting to the server"));
+        runLater(() -> {uiController.setQuestionLabel("Connecting to the server");
+            uiController.setScoreLabel(String.valueOf(0));
+        });
+
 
         while (true) {
             try {

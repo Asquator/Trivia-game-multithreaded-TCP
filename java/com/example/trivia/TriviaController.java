@@ -29,7 +29,6 @@ public class TriviaController {
     @FXML
     private Button sendButton, startButton;
 
-
     private TriviaClient client;
 
     public void initialize(){
@@ -92,6 +91,9 @@ public class TriviaController {
     void onStartClicked(ActionEvent event) {
         //starting client
         client = new TriviaClient(this, TriviaApplication.getHost(), TriviaServer.PORT, TriviaApplication.getDelay());
+        startButton.setDisable(true);
+
         new Thread(client).start();
+
     }
 }
